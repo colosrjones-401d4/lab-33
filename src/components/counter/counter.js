@@ -19,8 +19,8 @@ let counterStyle = {
   border: '2px solid yellow',
   borderRadius: '25%',
   textAlign: 'center',
-  width: '2em',
-  height: '2em',
+  width: '3em',
+  height: '3em',
   color: 'white',
   background: 'red',
 };
