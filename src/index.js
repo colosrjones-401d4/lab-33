@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
-import CountProvider from './components/context';
+import { BrowserRouter } from 'react-router-dom';
+
+import App from './app.js';
 
 class Main extends React.Component {
   render() {
     return (
-      <CountProvider>
+      <BrowserRouter>
         <App />
-      </CountProvider>
+      </BrowserRouter>
     );
   }
 }
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+const rootElement = document.getElementById('root');
+ReactDOM.render(<Main />, rootElement);
