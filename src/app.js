@@ -1,18 +1,26 @@
-import React from "react";
-import Counter from "./components/counter/counter";
-import Increment from "./components/counter/increment.js";
-import Decrement from "./components/counter/decrement.js";
+import React from 'react';
 
-export default class App extends React.Component {
-  
+import CounterContext from './components/context/context';
+import Counter from './components/counter/counter';
+import Incrementer from './components/increment/increment';
+import Decrementer from './components/decrement/decrement';
 
+
+
+class App extends React.Component {
   render() {
     return (
       <>
-        <Decrement decrementCounter={this.decrementCounter} />
-        <Counter banana={this.state} />
-        <Increment incrementCounter={this.incrementCounter} />
+        <CounterContext>
+          <div className='stylecounter'>
+          <Decrementer />
+          <Counter />
+          <Incrementer />
+          </div>
+        </CounterContext>
       </>
     );
   }
 }
+
+export default App;
