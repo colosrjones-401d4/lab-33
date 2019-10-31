@@ -1,36 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
+export const counterContext = React.createContext();
 
-export const CounterContext = React.createContext();
 
-class CountProvider extends React.Component {
+class ContextProvider extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      count: 0,
-      increment: this.increment,
-      decrement: this.decrement,
+      counter: 0,
+      incrementCounter: this.incrementCounter,
+      decrementCounter: this.decrementCounter
     };
   }
-
-  increment = () => {
-    this.setState((state) => {
-      return (state.count = state.count + 1);
+  incrementCounter = () => {
+    this.setState({
+      counter: this.state.counter + 1
     });
-  }
+  };
 
-  decrement = () => {
-    this.setState((state) => {
-      return (state.count = state.count - 1);
+  decrementCounter = () => {
+    this.setState({
+      counter: this.state.counter - 1
     });
-  }
+  };
 
-  render() {
+  render(){
     return (
-      <CounterContext.Provider value={this.state}>{this.props.children}
-      </CounterContext.Provider>
-    );
+      <counterContext.Provider value={this.state}>
+        {this.props.children}
+      </counterContext.Provider>
+
+    )
   }
+
 }
 
-export default CountProvider;
+export default ContextProvider;

@@ -1,22 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {counterContext} from './context';
 
-const Increment = (props) => {
+const Increment = (props)=> {
+
+  const context = useContext(counterContext); 
+
   return (
-    <button style={style} onClick={props.increment}>+</button>
-  );
-};
-
-let style = {
-  margin: 'auto',
-  display: 'incline-block',
-  fontSize: '2em',
-  border: '2px solid yellow',
-  borderRadius: '25%',
-  textAlign: 'center',
-  width: '2em',
-  height:'2em',
-  color: 'white',
-  background: 'black',
+    <button  onClick={context.incrementCounter}> + </button>
+  )
+  
 };
 
 export default Increment;
