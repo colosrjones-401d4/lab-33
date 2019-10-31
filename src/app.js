@@ -1,21 +1,31 @@
-import React, { useContext } from 'react';
-import { CountContext } from './components/context';
-import Counter from './components/counter';
+import React from 'react';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 
-const App = (props) => {
-  const countContext = useContext(CountContext);
+import SettingsProvider from './context/settings/settings';
 
-  return (
-    <>
-      <Counter
-        count={countContext.count}
-        increment={countContext.increment}
-        decrement={countContext.decrement}
-      />
-    </>
-  );
-};
+// State Only
+import ToDo from './components/todo/todo.js';
 
-// let style =
+// API Connected (Live Data)
+import ToDoConnected from './components/todo/todo-connected.js';
 
-export default App;
+export default class App extends React.Component {
+  render() {
+    return (
+      <SettingsProvider>
+      <BrowserRouter>
+          <nav>
+            <ul>
+              <li><Link to="/">Local ToDo</Link></li>
+              <li><Link to="/connected">Connected ToDo</Link></li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route path="/connected" component={ToDoConnected} />
+            <Route component={ToDo} />
+          </Switch>
+          </BrowserRouter>
+      </SettingsProvider>
+    );
+  }
+}
