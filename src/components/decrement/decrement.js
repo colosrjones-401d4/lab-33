@@ -2,14 +2,14 @@ import React from 'react';
 
 import { CounterContext } from '../context/context';
 
-class Counter extends React.Component {
+class Decrement extends React.Component {
   static contextType = CounterContext;
   render() {
     return (
       <CounterContext.Consumer>
         {context => (
           <>
-            <span>{this.context.count}</span>
+            <button onClick={this.context.decrementCounter}>-</button>
           </>
         )}
       </CounterContext.Consumer>
@@ -17,4 +17,4 @@ class Counter extends React.Component {
   }
 }
 
-export default Counter;
+export default Decrement;

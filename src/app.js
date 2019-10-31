@@ -1,19 +1,26 @@
 import React from 'react';
-import { useContext} from 'react';
-import { CounterContext } from './components/counter/context';
+
+import CounterContext from './components/context/context';
 import Counter from './components/counter/counter';
+import Incrementer from './components/increment/increment';
+import Decrementer from './components/decrement/decrement';
 
-const App = (props) => {
-  const counterContext = useContext(CounterContext);
 
-  return (
-    <>
-    <Counter
-     count={counterContext.count}
-     increment={counterContext.increment}
-     decrement={counterContext.decrement}/>
-     </>    
-  );
-};
+
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <CounterContext>
+          <div className='stylecounter'>
+          <Decrementer />
+          <Counter />
+          <Incrementer />
+          </div>
+        </CounterContext>
+      </>
+    );
+  }
+}
 
 export default App;

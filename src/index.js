@@ -1,17 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app.js';
-import CountProvider from './components/counter/context';
+import ReactDOM from "react-dom";
 
-class Main extends React.Component {
-  render() {
-    return (
-     <CountProvider>
-      <App />
-     </CountProvider>
-    );
-}
+import App from "./app.js";
+
+function Main() {
+  return <App />;
 }
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 ReactDOM.render(<Main />, rootElement);
